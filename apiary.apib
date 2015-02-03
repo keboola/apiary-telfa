@@ -1,0 +1,69 @@
+FORMAT: 1A
+HOST: https://www4.telfa.cz/
+
+# Telfa
+Telfa API
+
+Pagination = pageNum, page size is 20
+
+# Group Calls
+
+## Calls [/calls.json{?from}{?id}]
+### List all Calls [GET]
++ Request
+
+    + Header
+    
+            Authorization: Basic 123466789==
+
++ Parameters
+    + from = `` (optional, string, `2015-02-28+14:45`) ... Return only calls newer than the date. Format: Y-m-d+H:i
+
+    + id = `` (optional, string, `3`) ... Call ID to retrieve a single call detail
+
++ Response 200 (application/json)
+
+        [
+            {
+                "outbound_from_external_number": null,
+                "hungup_at": "2015/02/03 06:54:10 +0100",
+                "answered_by_user_id": null,
+                "answered_at": null,
+                "recording_file_name": null,
+                "transfer_description": "VIP HLASOVÁ ZPRÁVA",
+                "inbound": true,
+                "created_at": "2015-02-03T06:54:01+01:00",
+                "caller_name": null,
+                "caller_number": "123456789",
+                "transferred_to_number": null,
+                "recorded": true,
+                "bridge_start_at": null,
+                "voice_mail_file_name": null,
+                "id": 1,
+                "task_id": null,
+                "dialed_number": "123654789"
+            }
+        ]
+        
+# Group Users
+
+## Users [/telfa_users/status.json]
+### List all Users status [GET]
++ Request
+
+    + Header
+    
+            Authorization: Basic 123466789==
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "presence_changed_at": "2016/06/06 06:06:06 +0000",
+                "email": "pepa.brutalni@mnoho.cs",
+                "present": false,
+                "available": true,
+                "id": 666,
+                "name": "Pepa Hrubec"
+            }
+        ]
